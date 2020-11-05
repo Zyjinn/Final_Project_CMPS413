@@ -6,13 +6,21 @@ import java.net.*;
 public class Server {
     public static void main(String[] args){  
     try{  
-        ServerSocket mySocket = new ServerSocket(6666); // 
-        Socket s = mySocket.accept(); //establishes connection   
-        DataInputStream dis = new DataInputStream(s.getInputStream()); //wait for input
+        ServerSocket myServerSocket = new ServerSocket(6666); // 
 
-        String str = (String) dis.readUTF();
-        System.out.println("message= " +str);  
-        mySocket.close();  
+        // Allow socket to accept input
+        Socket mySocket = myServerSocket.accept(); 
+        
+        //wait for input
+        DataInputStream DataStream = new DataInputStream(mySocket.getInputStream()); 
+
+        String clientMsg = (String) DataStream.readUTF();
+
+        // print the message from the client 
+        System.out.println("Client sent message...: " + clientMsg); 
+
+        // Close the connection to the server
+        myServerSocket.close(); 
     }catch(Exception e){
         System.out.println(e);
     }  
