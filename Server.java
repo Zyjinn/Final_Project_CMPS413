@@ -10,8 +10,8 @@ public class Server {
     private Set<String> users = new HashSet<>(); // store all of the users
     private Set<UserThread> usersThreads = new HashSet<>(); // store all user threads
 
-    // Set the port to connect to 
-    public void setPort(int port) { 
+    // * Constructor for the Server class 
+    public Server(int port) { 
     this.port = port;
     }
 
@@ -29,7 +29,7 @@ public class Server {
                 // Create a new user thread using the socket accepted
                 UserThread newUser = new UserThread(socket, this);
                 usersThreads.add(newUser);
-                newUser.start()
+                newUser.start();
             }
         } catch (IOException e){
             // Print error msg.
@@ -53,11 +53,11 @@ public class Server {
         chatServer.execute(); // start the server
     }
 
-    // * broadcast sends a message from user to all clients, except excluded
-    void broadcast(String message, UserThread excludeUser){
+    // * broadcast sends a message from user to all clients, except current
+    void broadcast(String message, UserThread currentUser){
         for (UserThread user : usersThreads) {
             // If not the exception user, send the message
-            if (user != excludeUser) {
+            if (user != currentUser) {
                 user.sendMessage(message);
             }
         }
