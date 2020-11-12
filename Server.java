@@ -38,7 +38,7 @@ public class Server {
         }
     }
 
-    // Main function
+    // * Main function
     public static void main(String[] args) {
         // Nothing was given as args.
         if (args.length < 1) {

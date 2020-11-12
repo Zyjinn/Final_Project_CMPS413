@@ -3,8 +3,6 @@
 // imports
 import java.io.*;
 import java.net.*;
-import java.util.*;
-
 // * Class for the UserThread, which handles the behavior of user threads inside of a hashset in the Server.java file
 public class UserThread extends Thread {
     private Socket socket;

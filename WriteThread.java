@@ -27,7 +27,7 @@ public class WriteThread extends Thread {
     }
 
     public void run(){
-        Console console = System.console() // create a console obj. Use to get input
+        Console console = System.console(); // create a console obj. Use to get input
 
         // Set the username of the client
         String username = console.readLine("\nEnter your username!: ");
