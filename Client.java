@@ -2,7 +2,7 @@
 import java.io.*;  
 import java.net.*;  
 
-// * Class for client
+// * Class for client, which sends input to the server in portnum at hostname specified
 public class Client {
     // Params
     private String hostname;
@@ -51,22 +51,15 @@ public class Client {
 
     
 // * Main function to operate client initialization and chatting 
-public static void main(String[] args) {  
-    try{      
-        Socket myClientSocket = new Socket("localhost", 6666);  
+// * Given: hostname portNum
+// * Return: start a client
+    public static void main(String[] args) {  
+        if (args.length <2) return; // ! not enough args
 
-        DataOutputStream dataStreamOut = new DataOutputStream(myClientSocket.getOutputStream());  
-        
-        dataStreamOut.writeUTF("Hello Server");  
+        String hostname = args[0];
+        int portNum = Integer.parseInt(args[1]);
 
-        dataStreamOut.flush(); // Get rid of everything in dout
-
-        // close the socket and connection
-        dataStreamOut.close();
-        myClientSocket.close();  
-
-    } catch(Exception e){
-        System.out.println(e); // Print an exception if we get one
+        Client myClient = new Client(hostname, portNum);
+        myClient.execute(); 
     }  
-}  
 }  
