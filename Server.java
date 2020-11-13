@@ -19,12 +19,12 @@ public class Server {
     public void execute() {
         // Create a socket for the server at port specified
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server is listening on port" + port);
+            System.out.println("Server is listening on port: " + port);
 
             while (true) {
                 // Accept incoming sockets
                 Socket socket = serverSocket.accept();
-                System.out.println("User has connected to the server at port" + port);
+                System.out.println("User has connected to the server at port: " + port);
 
                 // Create a new user thread using the socket accepted
                 UserThread newUser = new UserThread(socket, this);
@@ -75,7 +75,7 @@ public class Server {
         // remove from theads
         if (removed) {
             usersThreads.remove(username); 
-            System.out.println("User" + username + "Left the chat");
+            System.out.println("User" + "[" + username + "]: Left the chat");
         }
     }
 

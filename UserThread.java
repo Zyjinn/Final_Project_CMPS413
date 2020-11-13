@@ -34,7 +34,7 @@ public class UserThread extends Thread {
             server.addUserName(username);
 
             // Broadcast a message that a new user has connected
-            String serverMessage = "User: " + username + "has connected!";
+            String serverMessage = "User: " + "[" + username + "]: has connected!";
             server.broadcast(serverMessage, this);
         
             // get initial message
@@ -46,7 +46,7 @@ public class UserThread extends Thread {
             // Continue to send mgs until the client message is not "end"
             while (!clientMessage.equals("end")){
                 clientMessage = reader.readLine();
-                serverMessage = username + ":" + clientMessage;
+                serverMessage = "[" + username + "]: " + clientMessage;
                 server.broadcast(serverMessage, this);
             }
 
