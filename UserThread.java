@@ -46,8 +46,16 @@ public class UserThread extends Thread {
             // Continue to send mgs until the client message is not "end"
             while (!clientMessage.equals("end")){
                 clientMessage = reader.readLine();
-                serverMessage = "[" + username + "]: " + clientMessage;
-                server.broadcast(serverMessage, this);
+
+                // Send a direct message
+                if(clientMessage == "dm"){
+
+                }
+                else {
+                    serverMessage = "[" + username + "]: " + clientMessage;
+                    server.broadcast(serverMessage, this);
+                    
+                }
             }
 
             // delete a user and close the socket

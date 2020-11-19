@@ -63,6 +63,15 @@ public class Server {
         }
     }
 
+    // * directMessage sends a message from the current user to the user specified
+    void directMessage(String message, UserThread targetUser){
+        for (UserThread user: usersThreads){
+            if (user == targetUser){
+                user.sendMessage(message);
+            }
+        }
+    }
+
     // * addUserName adds a user to the users hashset
     void addUserName(String username) {
         users.add(username); // add user to hashset of users
