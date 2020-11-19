@@ -40,6 +40,20 @@ public class UserThread extends Thread {
             // get initial message
             String clientMessage;
             clientMessage = reader.readLine();
+            if(clientMessage.equals("dm")){
+                // TODO Get the username to dm
+                // List users to give choices
+                listUsers();
+                String dmUser = reader.readLine();
+                server.directMessage(clientMessage, this);
+
+                // TODO Send the DM
+            }
+            else {
+                serverMessage = username + ":" + clientMessage;
+                server.broadcast(serverMessage, this);
+                
+            }
             serverMessage = username + ":" + clientMessage;
             server.broadcast(serverMessage, this);
 
@@ -48,7 +62,7 @@ public class UserThread extends Thread {
                 clientMessage = reader.readLine();
 
                 // Send a direct message
-                if(clientMessage == "dm"){
+                if(clientMessage.equals("dm")){
 
                 }
                 else {

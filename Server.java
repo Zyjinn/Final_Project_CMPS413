@@ -19,7 +19,7 @@ public class Server {
     public void execute() {
         // Create a socket for the server at port specified
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server is listening on port: " + " " + port);
+            System.out.println("Server is listening on port: " + port);
 
             while (true) {
                 // Accept incoming sockets
@@ -64,8 +64,9 @@ public class Server {
     }
 
     // * directMessage sends a message from the current user to the user specified
-    void directMessage(String message, UserThread targetUser){
+    void directMessage(String message, String targetUser){
         for (UserThread user: usersThreads){
+            String currentUser = user.getUserNames() 
             if (user == targetUser){
                 user.sendMessage(message);
             }
