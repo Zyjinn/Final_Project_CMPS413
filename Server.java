@@ -65,9 +65,12 @@ public class Server {
 
     // * directMessage sends a message from the current user to the user specified
     void directMessage(String message, String targetUser){
+        // Loop through all threads
         for (UserThread user: usersThreads){
-            String currentUser = user.getUserNames() 
-            if (user == targetUser){
+            
+            // get the username of the current thread
+            String currentUsername = user.getName();
+            if (currentUsername == targetUser){
                 user.sendMessage(message);
             }
         }

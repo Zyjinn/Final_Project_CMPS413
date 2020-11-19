@@ -41,13 +41,18 @@ public class UserThread extends Thread {
             String clientMessage;
             clientMessage = reader.readLine();
             if(clientMessage.equals("dm")){
-                // TODO Get the username to dm
+
                 // List users to give choices
                 listUsers();
-                String dmUser = reader.readLine();
-                server.directMessage(clientMessage, this);
 
-                // TODO Send the DM
+                // Select a username
+                System.out.println("Enter the username of the user to send a message to: ");
+                String dmUser = reader.readLine();
+
+                // Send a message to the user
+                server.directMessage(clientMessage, dmUser);
+                System.out.println("Sent a message to user " + dmUser);
+
             }
             else {
                 serverMessage = username + ":" + clientMessage;
@@ -63,6 +68,16 @@ public class UserThread extends Thread {
 
                 // Send a direct message
                 if(clientMessage.equals("dm")){
+                    // List users to give choices
+                    listUsers();
+
+                    // Select a username
+                    System.out.println("Enter the username of the user to send a message to: ");
+                    String dmUser = reader.readLine();
+
+                    // Send a message to the user
+                    server.directMessage(clientMessage, dmUser);
+                    System.out.println("Sent a message to user " + dmUser);
 
                 }
                 else {
