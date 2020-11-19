@@ -19,7 +19,7 @@ public class Server {
     public void execute() {
         // Create a socket for the server at port specified
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server is listening on port: " + port);
+            System.out.println("Server is listening on port: " + " " + port);
 
             while (true) {
                 // Accept incoming sockets
