@@ -20,13 +20,13 @@ the UserThreads class deals with most of the logic of each client's execution, a
 
 ## 🏃‍♂️Running the Project
 
-- Note that all of the below instructions are for windows terminal, bash terminal commands may differ slightly!
-- ❗If you experience issues, try running 'javac {filename}.java' on each file, as the files may not have compiled properly.
+- ❗Note that all of the below instructions are for windows terminal, bash terminal commands may differ slightly!
+- ❗If you experience issues, try running `'javac {filename}.java'` on each file, as the files may not have compiled properly.
 
 ### 💽Server
 
-- Open a command line window and type 'java Server {portNum}' to start the server
-- The text, "Server is listening on {portnum}" should display.
+- Open a command line window and type `'java Server {portNum}'` to start the server
+- The text, `Server is listening on {portnum}` should display.
 - Start client windows for each user! (see below).
 - to quit, simply kill the terminal for the server application.
 
