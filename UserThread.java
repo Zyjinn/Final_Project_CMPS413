@@ -77,7 +77,6 @@ public class UserThread extends Thread {
                     System.out.println("Enter the message");
                     String msg = reader.readLine();
                     server.directMessage(msg, this, dmUser);
-                    System.out.println("Sent a message to user " + "[" + dmUser + "]: ");
 
                 }
                 else {

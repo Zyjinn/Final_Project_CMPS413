@@ -11,6 +11,8 @@ public class Server {
     private int port; // Port to connect to
     private Set<String> users = new HashSet<>(); // store all of the users
     private Set<UserThread> usersThreads = new HashSet<>(); // store all user threads
+    private Map<String, UserThread> userThreadRel = new HashMap<String, UserThread>();
+    private UserThread newUser;
 
     // * Constructor for the Server class 
     public Server(int port) { 
@@ -67,25 +69,36 @@ public class Server {
 
     // * directMessage sends a message from the current user to the user specified
     void directMessage(String message, UserThread currentUser, String targetUser){
-
-        // Loop through all threads
-        for (UserThread user: usersThreads){
-            
-            // get the username of the current thread
-            String currentUsername = "";
-
-            System.out.println(users);
-            // Check if username matches target user
-            if (currentUsername.equals(targetUser)){
-                user.sendMessage(message);
-                System.out.println("Sent a message to user " + "[" + targetUser + "]");
-            }
+        if (!userThreadRel.containsKey(targetUser)){
+            System.out.println("User not found");
         }
+        else{
+            // Get the thread of our target user
+            UserThread targetThread = userThreadRel.get(targetUser);
+            System.out.println("Target username = " + targetUser);
+            System.out.println("Target Thread name = " + targetThread);
+            
+
+                    // Loop through all threads
+            for (UserThread user: usersThreads){
+
+                // Check if this thread matches the target one
+                if (targetThread.equals(user)){
+                    user.sendMessage(message);
+                    System.out.println("Sent a message to user " + "[" + targetUser + "]");
+                }
+            }
+
+        }
+
+
     }
 
     // * addUserName adds a user to the users hashset
     void addUserName(String username) {
         users.add(username); // add user to hashset of users
+        userThreadRel.put(username, newUser);
+        System.out.println(userThreadRel.get(username));
     }
 
     // * deleteUser deletes the specified user and their thread
