@@ -1,12 +1,12 @@
 # Final_Project_CMPS413
 
-## ❓What is this?
+## ❓What is this
 
 A chat application utilizing Java and sockets to create a simple chat application with clients, and servers.
 
 This application was created as part of my CMPS 413, computer networking final project.
 
-## ⚙Overview - How it Works!
+## ⚙Overview - How it Works
 
 The application consists of two primary parts, a Server.java file and a Client.java file. In order for the application to function the Server.java file must be run before the Client.java file(See instructions below).
 
