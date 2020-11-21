@@ -1,6 +1,6 @@
 # Final_Project_CMPS413
 
-- [Available here!][https://github.com/zyjinn/final_project_cmps413]
+- [Available here!](https://github.com/zyjinn/final_project_cmps413)
 
 ## ❓What is this
 
