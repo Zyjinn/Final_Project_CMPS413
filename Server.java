@@ -3,6 +3,8 @@ import java.io.*;
 import java.net.*;  
 import java.util.*;
 
+// import jdk.internal.util.xml.impl.Input;
+
 // Server class
 public class Server {
     // Server class params.
@@ -64,14 +66,19 @@ public class Server {
     }
 
     // * directMessage sends a message from the current user to the user specified
-    void directMessage(String message, String targetUser){
+    void directMessage(String message, UserThread currentUser, String targetUser){
+
         // Loop through all threads
         for (UserThread user: usersThreads){
             
             // get the username of the current thread
-            String currentUsername = user.getName();
-            if (currentUsername == targetUser){
+            String currentUsername = "";
+
+            System.out.println(users);
+            // Check if username matches target user
+            if (currentUsername.equals(targetUser)){
                 user.sendMessage(message);
+                System.out.println("Sent a message to user " + "[" + targetUser + "]");
             }
         }
     }

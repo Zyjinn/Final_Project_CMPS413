@@ -30,7 +30,7 @@ public class ReadThread extends Thread{
         while(true) {
             try {
                 String chatResponse = reader.readLine(); // keep reading input
-                System.out.print(chatResponse); // print read input
+                System.out.println(chatResponse); // print read input
 
                 // check if user has a username
                 if (client.getUsername() != null) {

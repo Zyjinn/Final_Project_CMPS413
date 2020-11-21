@@ -50,17 +50,15 @@ public class UserThread extends Thread {
                 String dmUser = reader.readLine();
 
                 // Send a message to the user
-                server.directMessage(clientMessage, dmUser);
-                System.out.println("Sent a message to user " + dmUser);
+                server.directMessage(clientMessage, this, dmUser);
+                
 
             }
             else {
-                serverMessage = username + ":" + clientMessage;
+                serverMessage = "[" + username + "]: " + clientMessage;
                 server.broadcast(serverMessage, this);
                 
             }
-            serverMessage = username + ":" + clientMessage;
-            server.broadcast(serverMessage, this);
 
             // Continue to send mgs until the client message is not "end"
             while (!clientMessage.equals("end")){
@@ -76,8 +74,10 @@ public class UserThread extends Thread {
                     String dmUser = reader.readLine();
 
                     // Send a message to the user
-                    server.directMessage(clientMessage, dmUser);
-                    System.out.println("Sent a message to user " + dmUser);
+                    System.out.println("Enter the message");
+                    String msg = reader.readLine();
+                    server.directMessage(msg, this, dmUser);
+                    System.out.println("Sent a message to user " + "[" + dmUser + "]: ");
 
                 }
                 else {
@@ -92,7 +92,7 @@ public class UserThread extends Thread {
             socket.close();
 
             // User leaves the chat message
-            serverMessage = username + " Has left the chat...";
+            serverMessage = "[" + username + "]: " + " Has left the chat...";
             server.broadcast(serverMessage, this);
         
         // ! Exception found in users 
@@ -106,7 +106,7 @@ public class UserThread extends Thread {
     // * ListUsers() Lists all users online (called as each user joins)
 	private void listUsers() {
         if (server.connectedUsers()) {
-            writer.println("Users: " + server.getUserNames());
+            writer.println("Users:" + server.getUserNames());
         } else {
             writer.println("No other users online");
         }

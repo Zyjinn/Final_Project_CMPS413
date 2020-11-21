@@ -30,7 +30,7 @@ public class WriteThread extends Thread {
         Console console = System.console(); // create a console obj. Use to get input
 
         // Set the username of the client
-        String username = console.readLine("\nEnter your username!: ");
+        String username = console.readLine("Enter your username!: ");
         client.setUsername(username);
         writer.println(username);
 
@@ -39,8 +39,19 @@ public class WriteThread extends Thread {
         msg = console.readLine("[" + username + "]: ");
         writer.println(msg);
 
-        // Continue to print msgs until the user types 'stop' into the console
+        
+
+        // Continue to print msgs until the userok types 'stop' into the console
         while (!msg.equals("stop")){
+
+            // Check if they want to send a dm
+            if(msg.equals("dm")) {
+                String dmUser = console.readLine("Enter a user to message");
+                writer.println(dmUser);
+                String dmMsg = console.readLine("Enter a message to send!");
+                writer.println(dmMsg);
+
+            }
             msg = console.readLine("[" + username + "]: ");
             writer.println(msg);
         }
