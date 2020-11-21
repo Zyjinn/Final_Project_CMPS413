@@ -21,18 +21,18 @@ the UserThreads class deals with most of the logic of each client's execution, a
 ## 🏃‍♂️Running the Project
 
 - ❗Note that all of the below instructions are for windows terminal, bash terminal commands may differ slightly!
-- ❗If you experience issues, try running `'javac {filename}.java'` on each file, as the files may not have compiled properly.
+- ❗If you experience issues, try running `javac {filename}.java` on each file, as the files may not have compiled properly.
 
 ### 💽Server
 
-- Open a command line window and type `'java Server {portNum}'` to start the server
+- Open a command line window and type `java Server {portNum}` to start the server
 - The text, `Server is listening on {portnum}` should display.
 - Start client windows for each user! (see below).
 - to quit, simply kill the terminal for the server application.
 
 ### 💻Client
 
-- After starting the server, in a terminal, type 'java Client localhost {portNum}'.
+- After starting the server, in a terminal, type `java Client localhost {portNum}`.
 
 - Once connected as a client, you should be able to see a prompt asking you to enter a user.
 
@@ -40,8 +40,8 @@ the UserThreads class deals with most of the logic of each client's execution, a
 
 - Begin chatting! All messages you send should send to all other users currently connected!
 
-- Typing 'dm' will initiate a prompt for a user to send a message to rather than the whole server.
+- Typing `dm` will initiate a prompt for a user to send a message to rather than the whole server.
 
-  - Note, this feature is a (WIP) and does not fully function.
+  - ❗Note, this feature is a (WIP) and does not fully function.
 
-- To stop chatting, enter 'stop' into the console!
+- To stop chatting, enter `stop` into the console!
